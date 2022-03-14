@@ -1,5 +1,5 @@
 import express from 'express'
-import fs, { promises as fsp } from 'fs'
+import { promises as fs } from 'fs'
 import sharp from 'sharp'
 import path from 'path'
 
@@ -21,10 +21,10 @@ api.get('/images', async (req, res) => {
     `${filename}_${width}_${height}.jpg`
   )
 
-  await fsp.mkdir(path.resolve('storage', 'thumbs'), { recursive: true })
+  await fs.mkdir(path.resolve('storage', 'thumbs'), { recursive: true })
   const found =
     `${filename}_${width}_${height}.jpg` in
-    fs.readdirSync(path.resolve('storage', 'thumbs'))
+    (await fs.readdir(path.resolve('storage', 'thumbs')))
 
   if (!found) {
     await sharp(path.resolve('storage', 'images', `${filename}.jpg`))
