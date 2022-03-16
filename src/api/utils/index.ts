@@ -23,7 +23,7 @@ export async function handleImagesEndpoint(
     await fs.mkdir(outDir, { recursive: true })
   } catch (err) {
     res.status(403).json({
-      msg: `OS ERR: Can't access ${outDir} due to permissions`,
+      msg: `OS ERR: Can't access ${outDir}`,
       err,
     })
     return
@@ -35,7 +35,7 @@ export async function handleImagesEndpoint(
   try {
     await fs.access(imageFile)
   } catch {
-    res.status(403).json(`OS ERR: Can't access ${imageFile} due to permissions`)
+    res.status(403).json(`OS ERR: Can't access ${imageFile}`)
     return
   }
 
