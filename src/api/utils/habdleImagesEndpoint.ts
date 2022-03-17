@@ -23,8 +23,8 @@ export async function handleImagesEndpoint(
   const outFile = path.join(outDir, `${filename}_${width}_${height}.jpg`)
 
   try {
-    await fs.access(outDir)
     await fs.mkdir(outDir, { recursive: true })
+    await fs.access(outDir)
   } catch {
     res.status(500).send(`OS ERR: Can't create ${outDir}`)
     return
