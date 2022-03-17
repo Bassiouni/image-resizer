@@ -3,6 +3,6 @@ import { handleImagesEndpoint } from './utils'
 
 const api = express.Router()
 
-api.get('/images', handleImagesEndpoint)
+api.use('/images', handleImagesEndpoint)
 
 export default api

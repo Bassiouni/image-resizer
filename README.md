@@ -19,7 +19,7 @@ The only existing endpoint is `/api/images` and you have to give it query params
 
 ## Notes
 
-- if you give a negative number in the query param it automatically converts it to a positive number
+- The API doesn't allow for negative numbers or wrong typee of parameters you give in the query param
 
 - Images are stored in `storage/images`
 

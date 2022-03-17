@@ -9,7 +9,7 @@ dotenv.config()
 const PORT = process.env.PORT || 3000
 const app = express()
 
-app.use(helmet()).use(morgan('dev')).use(express.json()).use('/api', api)
+app.use(helmet()).use(morgan('dev')).use('/api', api)
 
 app.listen(PORT, () => {
   console.log(`Server is starting at port:${PORT}`)
